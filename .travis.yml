@@ -12,4 +12,10 @@ after_success:
   - docker build -t lhosking/multi-client ./client
   - docker build -t lhosking/multi-nginx ./nginx
   - docker build -t lhosking/multi-server ./server
-  - docker build -t lhosking/mulit-worker ./worker
+  - docker build -t lhosking/multi-worker ./worker
+  # now push images to docker hub... login to docker cli
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push lhosking/multi-client
+  - docker push lhosking/multi-nginx
+  - docker push lhosking/multi-server
+  - docker push lhosking/multi-worker
