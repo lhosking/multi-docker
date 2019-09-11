@@ -28,8 +28,9 @@ services:
       - PGDATABASE=postgres
   client:
     build:
-      dockerfile: Dockerfile.dev
+      # dockerfile: Dockerfile.dev
       context: ./client
+      # target: dev
     volumes:
       - /app/node_modules
       - ./client:/app
